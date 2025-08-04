@@ -1,1 +1,4 @@
-misc
+# Ignore misc folder
+misc/
+# Ignore README
+README.md
