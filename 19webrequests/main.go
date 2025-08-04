@@ -1,7 +1,9 @@
 package main
-import{
+import(
 	"fmt"
-}
+	"net/http"
+	"io"
+)
  
 const url = "https://lco.dev"
 func main(){
@@ -10,6 +12,9 @@ func main(){
 		panic(err)
 	}
 	defer response.Body.Close()		//caller's responsibility to close the connection
-	databytes,err := ioutil.ReadAll(response.Body)
+	databytes,err := io.ReadAll(response.Body)
+	if err != nil {
+		panic(err)
+	}
 	fmt.Println("databytes are : ",databytes)
 }
